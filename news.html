@@ -1,0 +1,435 @@
+<!doctype html>
+<html>
+<head>
+    <title>My Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/fashion.css" />
+    <link rel="stylesheet" href="styles/fashion.min.css" />
+    <link rel="stylesheet" href="styles/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="controler.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFAX12pUtJDya5vTCGVh8zQ4EQuQkzEeA&callback=initMap"
+            type="text/javascript"></script>
+    <meta charset="utf-8" />
+    <meta name="author" content="www.frebsite.nl" />
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+    <title>jQuery.menu demo</title>
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+    <style>
+        .pLen {
+            width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+.btn{
+    background-color: brown;
+    color: #0c13d6;
+}
+        .column {
+            float: left;
+            width: 100%;
+            padding: 5px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .img-container{
+            width: 80%;
+            margin-left: 4%;
+        }
+        img {
+            padding: 10px;
+        }
+
+        /*#map-page, #map-canvas {*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+            /*padding: 0;*/
+        /*}*/
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div data-role="page" class="jqm-demos ui-responsive-panel"  data-title="Panel responsive page"  id="newsList" data-theme="d">
+        <!--<div style="background-color: #0d0d0d" data-role="header">-->
+            <!--<h1></h1>-->
+            <!--<a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>-->
+            <!--<a href="#add-form" data-icon="gear" data-iconpos="notext">Add</a>-->
+        <!--</div>-->
+        <!--<div role="main" class="ui-content jqm-content jqm-fullwidth">-->
+        <!--<div style="color: black" data-role="panel" data-display="push" data-theme="b" id="nav-panel">-->
+            <!--<ul data-role="listview">-->
+                <!--<li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Accordion</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Ajax Navigation</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Autocomplete</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Buttons</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Checkboxes</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Collapsibles</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Controlgroup</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Dialogs</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Fixed toolbars</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Flip switch toggle</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Footer toolbar</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Form elements</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Grids</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Header toolbar</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Icons</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Links</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Listviews</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Loader overlay</a></li>-->
+                <!--<li><a href="#panel-responsive-page2">Navbar</a></li>-->
+            <!--</ul>-->
+        <!--</div>&lt;!&ndash; /panel &ndash;&gt;-->
+        <!--<div data-role="panel" data-position="right" data-display="reveal" data-theme="a" id="add-form">-->
+            <!--<form class="userform">-->
+                <!--<h2>Login</h2>-->
+                <!--<label for="name">Username:</label>-->
+                <!--<input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">-->
+                <!--<label for="password">Password:</label>-->
+                <!--<input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">-->
+                <!--<div class="ui-grid-a">-->
+                    <!--<div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancel</a></div>-->
+                    <!--<div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Save</a></div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+        <div data-role="header">
+            <h1 style="width: auto">
+                <a class="site-logo" href="index.html" style="width:100%">
+                    <img src="images/logo_text.png" alt="Homepage" style="width: 100%">
+                </a>
+            </h1>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+        </div>
+        <div data-role="panel" id="left-panel">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close" style="height:20"></a></li>
+                <!-- <li data-icon="back"><a href="#demo-intro" data-rel="back">Demo intro</a></li> -->
+                <li data-icon="calendar"><a href="#demo-intro" data-rel="back">Events</a></li>
+                <!-- <li data-icon="camera"><a href="#demo-intro" data-rel="back">Gallery</a></li>
+                <li data-icon="bullets"><a href="#demo-intro" data-rel="back">Designers</a></li>
+                <li data-icon="bars"><a href="#demo-intro" data-rel="back">News Feed</a></li> -->
+                <li data-icon="shop"><a href="#demo-intro" data-rel="back">Products</a></li>
+                <li data-icon="tag"><a href="#demo-intro" data-rel="back">Sponsers</a></li>
+                <li data-icon="info"><a href="#demo-intro" data-rel="back">FAQ</a></li>
+
+                <li data-role="list-divider">About</li>
+                <li data-icon="user"><a href="pages/ourteam.html" data-rel="back">Who we are</a></li>
+                <li data-icon="phone"><a href="pages/contactus.html" data-rel="back">Contact Us</a></li>
+
+                <li data-role="list-divider">My Account</li>
+                <li data-icon="user"><a href="#demo-intro" data-rel="back">Login / Signup</a></li>
+                <li data-role="collapsible" data-inset="false" data-iconpos="right">
+                    <h3>Favourites</h3>
+                    <ul data-role="listview">
+                        <li><a href="#">My Designers</a></li>
+                        <li><a href="#">My Products</a></li>
+                        <li><a href="#">My Events</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#newsList" data-transition="slidedown" >News Feed</a> </li>
+            <li><a href="#favListView" data-transition="slidedown" >Favourites</a> </li>
+            <li><a href="#poi" data-transition="slidedown" >Nearby POI</a> </li>
+        </ul>
+
+    </div>
+    <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search news..">
+        <li data-role="list-divider">upcoming fashion event news<span class="ui-li-count">4</span></li>
+        <li><a href="#detail1" data-transition="flow"><img src="img/wesminster.png" style="height:80%;">
+            <h2>Adidas with westminster fashion week</h2>
+            <p>latest news</p>
+            <p class="ui-li-aside">21311 views</p>
+            <p>Adidas have announced they are extending their super successful collaboration...</p></a>
+        </li>
+        <li><a href="#detail2"><img src="img/queenez.jpg" style="height:80%;">
+            <h2>Her Majesty Queen going to participate</h2>
+            <p>latest news</p>
+            <p class="ui-li-aside">2312 views</p>
+            <p>A representative of Her Majesty Queen Elizabeth II will present the honorary...</p></a>
+
+        </li>
+        <li><a href="#detail3"><img src="img/linkingpark.jpg" style="height:80%;">
+            <h2>Linking park Live in concert on Day 3</h2>
+            <p>latest news</p>
+            <p class="ui-li-aside">312 views</p>
+            <p>A strong measure of an artist's greatness and legacy is how often they are cited by...</p></a>
+        </li>
+        <li><a href="#detail4"><img src="img/srk.png" style="height:80%;">
+            <h2>Shah ruk khans special event in opening ceremony</h2>
+            <p>latest news</p>
+            <p class="ui-li-aside">122 views</p>
+            <p>Shah Rukh Khan and Katrina Kaif are reuniting on the big screen after a gap of 6 years  ...</p></a>
+        </li>
+        <li><a href="#detail6"><img src="img/dollar.jpg" style="height:80%;">
+            <h2>Fashion week will make new financial records</h2>
+            <p>latest news</p>
+            <p class="ui-li-aside">422 views</p>
+            <p>Fabled $1 billion milestone at the global box office. With $287.9 million domestic and $732.4m overseas...</p></a>
+        </li>
+        <li><a href="#detail5"><img src="img/runway.jpg" style="height:80%;">
+            <h2>Five Runway fashion events will take place</h2>
+            <p>latest news</p>
+            <p class="ui-li-aside">822 views</p>
+            <p>The PGA Show Fashion Show will be emceed by Golf Channel Reporter Bailey Mosier, and includes fashion ...</p></a>
+        </li>
+    </ul>
+        <div data-role="popup" id="popupEmailList">
+            <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+        </div>
+        <a href="#popupEmailList" data-rel="popup" class="ui-btn " data-transition="pop"><button data-icon="mail"  data-theme="d"  onclick="emailto('+i+')">email news list</button></a>
+        </div>
+<div data-role="footer">
+    <h4>fashionista</h4>
+</div>
+
+</div>
+
+
+<div data-role="page" id="detail1" data-theme="d">
+    <div data-role="popup" id="popupEmail1">
+        <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="popupFav1">
+        <h5>News item added to favourites</h5>
+    </div>
+    <div data-role="popup" id="popupMessage1">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+
+
+
+<div data-role="page" id="detail2" data-theme="d">
+    <div data-role="popup" id="popupEmail2">
+        <h5>News has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="popupFav2">
+        <h5>News item added to favourites</h5>
+    </div>
+    <div data-role="popup" id="popupMessage2">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+
+<div data-role="page" id="detail3" data-theme="d">
+    <div data-role="popup" id="popupEmail3">
+        <h5>News has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="popupFav3">
+        <h5>News item added to favourites</h5>
+    </div>
+    <div data-role="popup" id="popupMessage3">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+<div data-role="page" id="detail4" data-theme="d">
+    <div data-role="popup" id="popupEmail4">
+        <h5>News has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="popupFav4">
+        <h5>News item added to favourites</h5>
+    </div>
+    <div data-role="popup" id="popupMessage4">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+    <div data-role="page" id="detail5" data-theme="d">
+        <div data-role="popup" id="popupEmail5">
+            <h5>News has been sent to isurusapumal.contact@gmail.com</h5>
+        </div>
+        <div data-role="popup" id="popupFav5">
+            <h5>News item added to favourites</h5>
+        </div>
+        <div data-role="popup" id="popupMessage5">
+            <h5>Your message has been sent. Thank you.</h5>
+        </div>
+    </div>
+    <div data-role="page" id="detail6" data-theme="d">
+        <div data-role="popup" id="popupEmail6">
+            <h5>News has been sent to isurusapumal.contact@gmail.com</h5>
+        </div>
+        <div data-role="popup" id="popupFav6">
+            <h5>News item added to favourites</h5>
+        </div>
+        <div data-role="popup" id="popupMessage6">
+            <h5>Your message has been sent. Thank you.</h5>
+        </div>
+    </div>
+<div data-role="page" id="favdetail1" data-theme="d">
+    <div data-role="popup" id="fpopupEmail1">
+        <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="fpopupFav1">
+        <h5>News item removed from favourites</h5>
+    </div>
+    <div data-role="popup" id="fpopupMessage1">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+
+
+
+<div data-role="page" id="favdetail2" data-theme="d">
+    <div data-role="popup" id="fpopupEmail2">
+        <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="fpopupFav2">
+        <h5>News item removed from favourites</h5>
+    </div>
+    <div data-role="popup" id="fpopupMessage2">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+
+<div data-role="page" id="favdetail3" data-theme="d">
+    <div data-role="popup" id="fpopupEmail3">
+        <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="fpopupFav3">
+        <h5>News item removed from favourites</h5>
+    </div>
+    <div data-role="popup" id="fpopupMessage3">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+<div data-role="page" id="favdetail4" data-theme="d">
+    <div data-role="popup" id="fpopupEmail4">
+        <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+    </div>
+    <div data-role="popup" id="fpopupFav4">
+        <h5>News item removed from favourites</h5>
+    </div>
+    <div data-role="popup" id="fpopupMessage4">
+        <h5>Your message has been sent. Thank you.</h5>
+    </div>
+</div>
+    <div data-role="page" id="favdetail5" data-theme="d">
+        <div data-role="popup" id="fpopupEmail5">
+            <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+        </div>
+        <div data-role="popup" id="fpopupFav5">
+            <h5>News item removed from favourites</h5>
+        </div>
+        <div data-role="popup" id="fpopupMessage5">
+            <h5>Your message has been sent. Thank you.</h5>
+        </div>
+    </div>
+    <div data-role="page" id="favdetail6" data-theme="d">
+        <div data-role="popup" id="fpopupEmail6">
+            <h5>News list has been sent to isurusapumal.contact@gmail.com</h5>
+        </div>
+        <div data-role="popup" id="fpopupFav6">
+            <h5>News item removed from favourites</h5>
+        </div>
+        <div data-role="popup" id="fpopupMessage6">
+            <h5>Your message has been sent. Thank you.</h5>
+        </div>
+    </div>
+<div data-role="page" id="favListView" data-theme="d">
+
+    <div data-role="header" >
+        <h1>Favourite News</h1>
+    </div>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#newsList" data-transition="slidedown" >News Feed</a> </li>
+            <li><a href="#favListView" data-transition="slidedown" >My Favourites</a> </li>
+            <li><a href="#poi" data-transition="slidedown" >Nearby POI</a> </li>
+        </ul>
+    </div>
+    <div id ="favDiv">
+        <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search news.." id="favUl"> </ul>
+    </div>
+
+</div>
+<div data-role="page" id="poi" data-theme="d">
+
+    <div data-role="header" >
+        <h1>Nearby News</h1>
+    </div>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#newsList" data-transition="slidedown" >News Feed</a> </li>
+            <li><a href="#favListView" data-transition="slidedown" >My Favourites</a> </li>
+            <li><a href="#poi" data-transition="slidedown" >Nearby POI</a> </li>
+        </ul>
+    </div>
+    <div id ="poiDiv">
+        <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search news.." id="poiUl">
+            <li data-role="list-divider">nearby fashion news<span class="ui-li-count">3</span></li>
+            <li><a href="#detail1" data-transition="flow"><img src="img/wesminster.png" style="height:80%;">
+                <h2>Adidas with westminster fashion week</h2>
+                <p>London</p>
+                <p class="ui-li-aside">21311 views</p>
+                <p>Adidas have announced they are extending their super successful collaboration...</p></a>
+            </li>
+            <li><a href="#detail2"><img src="img/queenez.jpg" style="height:80%;">
+                <h2>Her Majesty Queen going to participate</h2>
+                <p>London</p>
+                <p class="ui-li-aside">2312 views</p>
+                <p>A representative of Her Majesty Queen Elizabeth II will present the honorary...</p></a>
+
+            </li>
+            <li><a href="#detail3"><img src="img/linkingpark.jpg" style="height:80%;">
+                <h2>Linking park Live in concert on Day 3</h2>
+                <p>London</p>
+                <p class="ui-li-aside">312 views</p>
+                <p>A strong measure of an artist's greatness and legacy is how often they are cited by...</p></a>
+
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div data-role="page" id="map1" data-theme="d">
+
+    <div data-role="header">
+        <h1>Google map</h1>
+    </div>
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#newsList" data-transition="slidedown">News Feed</a> </li>
+            <li><a href="#favListView" data-transition="slidedown">Favourites</a> </li>
+        </ul>
+    </div>
+    <div role="main" class="ui-content">
+        <div id="map"></div>
+        <!--<div align="center" >-->
+        <!--<h3>exact locations</h3>-->
+
+        <!--<img src="img/map1.png">-->
+        <!--<a class="ui-btn" href="#">mark</a>-->
+        <!--</div>-->
+
+    </div>
+    <div data-role="footer">
+        <h4>fashionista</h4>
+    </div>
+</div>
+
+</body>
+</html>

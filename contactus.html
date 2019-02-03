@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fashionista.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+    <div data-role="page" id="ourteam" data-url="ourteam">
+        <div data-role="header">
+            <h1>Fashionista</h1>
+            <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">Ticket Enquiries</li>
+                <li>
+                    <h3>Tel</h3> <a href="tel:+94774125896" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-phone">+94774125896</a>
+                </li>
+            </ul>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">Exhibitor Enquiries</li>
+                <li>
+                    <h3>Tel</h3> <a href="tel:+94774125896" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-phone">+94774125896</a>
+                </li>
+            </ul>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">Press Enquiries</li>
+                <li>
+                    <h3>Tel</h3> <a href="tel:+94774125896" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-phone">+94774125896</a>
+                </li>
+            </ul>
+            <ul data-role="listview" data-inset="true" data-divider-theme="b">
+                <li data-role="list-divider">Lost Property Enquiries</li>
+                <li>
+                    <h3>Tel</h3> <a href="tel:+94774125896" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-phone">+94774125896</a>
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript" src="../js/swiper.min.js"></script>
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
+
+        <!-- Menu-->
+        <div data-role="panel" id="left-panel">
+            <ul data-role="listview">
+                <li data-icon="delete"><a href="#" data-rel="close" style="height:20"></a></li>
+                <!-- <li data-icon="back"><a href="#demo-intro" data-rel="back">Demo intro</a></li> -->
+                <li data-icon="calendar"><a href="#demo-intro" data-rel="back">Events</a></li>
+                <!-- <li data-icon="camera"><a href="#demo-intro" data-rel="back">Gallery</a></li>
+                <li data-icon="bullets"><a href="#demo-intro" data-rel="back">Designers</a></li>
+                <li data-icon="bars"><a href="#demo-intro" data-rel="back">News Feed</a></li> -->
+                <li data-icon="shop"><a href="#demo-intro" data-rel="back">Products</a></li>
+                <li data-icon="tag"><a href="#demo-intro" data-rel="back">Sponsers</a></li>
+                <li data-icon="info"><a href="#demo-intro" data-rel="back">FAQ</a></li>
+
+                <li data-role="list-divider">About</li>
+                <li data-icon="user"><a href="ourteam.html" data-rel="back">Who we are</a></li>
+                <li data-icon="phone"><a href="contactus.html" data-rel="back">Contact Us</a></li>
+
+                <li data-role="list-divider">My Account</li>
+                <li data-icon="user"><a href="#demo-intro" data-rel="back">Login / Signup</a></li>
+                <li data-role="collapsible" data-inset="false" data-iconpos="right">
+                    <h3>Favourites</h3>
+                    <ul data-role="listview">
+                        <li><a href="#">My Designers</a></li>
+                        <li><a href="#">My Products</a></li>
+                        <li><a href="#">My Events</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div data-role="panel" id="right-panel" data-display="overlay" data-position="right">
+            <ul data-role="listview" data-icon="false">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Share this page</li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Google +</a></li>
+                <li><a href="#">Mail</a></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
